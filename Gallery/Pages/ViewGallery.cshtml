@@ -1,0 +1,18 @@
+﻿@page
+@model Gallery.ViewGalleryModel
+@{
+    ViewData["Title"] = "ViewGallery";
+}
+
+<h1>ViewGallery</h1>
+@foreach (var x in Model.images)
+{
+<div style="align-content: center; border: solid; width: 49%;">
+    <a asp-page="ViewGallery" asp-route-galleryId="@x.GalleryId">
+        <img style="width: 100%" src="@x.Source" />
+    </a>
+</div>
+}
+<br />
+<a asp-page="GalleryList">Back to gallery list</a>
+<a asp-page="index">Back to home page</a>

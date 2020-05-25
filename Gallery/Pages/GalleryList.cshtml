@@ -1,0 +1,14 @@
+﻿@page
+@model Gallery.GalleryListModel
+@{
+    ViewData["Title"] = "GalleryList";
+}
+
+<h1>GalleryList</h1>
+
+@foreach (var x in Model.galleries)
+{
+    <a asp-page="ViewGallery" asp-route-galleryId="@x.GalleryId">@x.Name</a>
+}
+<a asp-page="index">Back to home page</a>
+
