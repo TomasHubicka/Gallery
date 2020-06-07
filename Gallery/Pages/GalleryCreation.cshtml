@@ -5,4 +5,19 @@
 }
 
 <h1>GalleryCreation</h1>
+@if (Model.User.Identity.IsAuthenticated)
+{
+    <p>Name of gallery:</p>
+    <form method="post" action="">
+        <input type="text" name="GalleryName" /><br />
+        <input type="submit" value="Create" />
+    </form>
+    <br />
+    <hr />
+    <a asp-page="GalleryList">Back to gallery list</a>
 
+}
+else
+{
+    <p>Please log in to create galleries.</p>
+}

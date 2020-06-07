@@ -19,7 +19,6 @@ namespace Gallery.Pages
 
         public void OnGet()
         {
-
         }
     }
 }

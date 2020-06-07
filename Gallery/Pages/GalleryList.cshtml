@@ -6,9 +6,17 @@
 
 <h1>GalleryList</h1>
 
-@foreach (var x in Model.galleries)
-{
-    <a asp-page="ViewGallery" asp-route-galleryId="@x.GalleryId">@x.Name</a>
-}
-<a asp-page="index">Back to home page</a>
+    @foreach (var x in Model.galleries)
+    {
+        <a asp-page="ViewGallery" asp-route-galleryId="@x.GalleryId">@x.Name</a>
+        <br />
+    }
+    <hr />
+    <a asp-page="index">Back to home page</a>
+    <br />
+    <a asp-page="GalleryCreation">Create new gallery</a>
+
+    <p>Please log in.</p>
+
+
 

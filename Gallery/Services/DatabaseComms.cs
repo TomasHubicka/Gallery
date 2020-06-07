@@ -28,8 +28,14 @@ namespace Gallery.Services
         }
         public void AddImage(string name, string source, Guid galleryId)
         {
-            _db.Images.Add(new Image {Name = name, OwnerId = Guid.Parse(_hca.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value), Source = source, GalleryId = galleryId});
+            Guid imageId = Guid.NewGuid();
+            _db.Images.Add(new Image {Name = name, OwnerId = Guid.Parse(_hca.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value), Source = source, GalleryId = galleryId, ImageId = imageId});
+            _db.GalleryImages.Add(new GalleryImage { GalleryId = galleryId, ImageId = imageId });
             _db.SaveChanges();
+        }
+        public string GetGalleryName(Guid galleryId)
+        {
+            return _db.Galleries.Find(galleryId).Name;
         }
         public List<Image> LoadGallery(Guid galleryId)
         {

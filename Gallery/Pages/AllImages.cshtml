@@ -5,13 +5,17 @@
 }
 
 <h1>AllImages</h1>
-@foreach (var x in Model.images)
-{
-<div style="align-content: center; border: solid; width: 49%;">
-    <a asp-page="ViewGallery" asp-route-galleryId="@x.GalleryId">
-        <img style="width: 100%" src="@x.Source" />
-    </a>
-</div>
-}
-<br />
-<a asp-page="index">Back to home page</a>
+
+
+    @foreach (var x in Model.images)
+    {
+        <div style="align-content: center; border: solid; width: 49%;">
+            <a asp-page="ViewGallery" asp-route-galleryId="@x.GalleryId">
+                <img style="width: 100%" src="@x.Source" />
+            </a>
+        </div>
+    }
+    <br />
+    <a asp-page="index">Back to home page</a>
+
+    <p>Please log in.</p>

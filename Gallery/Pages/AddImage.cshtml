@@ -1,0 +1,27 @@
+﻿@page
+@model Gallery.AddImageModel
+@{
+    ViewData["Title"] = "AddImage";
+}
+
+<h1>AddImage</h1>
+
+@if (Model.User.Identity.IsAuthenticated)
+{
+    <form method="post" action="">
+        <p>Name:</p>
+        <input type="text" name="imageName" /><br />
+        <p>source (url):</p>
+        <input type="url" name="source"/><br />
+        <input type="hidden" name="galleryId" value="@Model.GalleryId" />
+        <input type="submit" value="Create" />
+    </form>
+    <br />
+    <hr />
+    <a asp-page="GalleryList">Back to gallery list</a>
+
+}
+else
+{
+    <p>Please log in to add images.</p>
+}
